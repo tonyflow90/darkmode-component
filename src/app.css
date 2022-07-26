@@ -16,9 +16,21 @@
 	--column-margin-top: 4rem;
 }
 
+html[data-theme='dark'] {
+	--pure-white: #ffffff;
+	--primary-color: #000000;
+	--secondary-color: #111;
+	--tertiary-color: #222;
+	--accent-color: #ff00dd;
+	--heading-color: rgba(223, 223, 223, 0.7);
+	--text-color: #d0dde9;
+	--background-without-opacity: rgba(255, 255, 255, 0.7);
+}
+
 body {
 	min-height: 100vh;
 	margin: 0;
+	color: var(--text-color);
 	background-color: var(--primary-color);
 	background: linear-gradient(
 		180deg,

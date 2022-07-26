@@ -6,9 +6,8 @@
 	import Sidebar from "$lib/Sidebar.svelte";
 	import SidebarButton from "$lib/SidebarButton.svelte";
 
-	// import DarkmodeComponent from "darkmode-component"
-	// import DarkmodeComponent from "./../../node_modules/darkmode-component/build/assets/index.ccf46668.js";
-
+	import { page } from "$app/stores";
+	
 	import "../app.css";
 
 	// Show mobile icon and display menu
@@ -25,7 +24,6 @@
 		}
 	};
 
-	let MyComponent;
 	// Attach media query listener on mount hook
 	onMount(async () => {
 		import("darkmode-component");
@@ -33,41 +31,34 @@
 		const mediaListener = window.matchMedia("(max-width: 767px)");
 		mediaListener.addListener(mediaQueryHandler);
 	});
-
 </script>
 
 <Header>
 	<div slot="left">
-		<!-- <div class={showMobileMenu ? "hidden" : ""}>
-			<SidebarButton bind:open />
-		</div> -->
 		<div class={showMobileMenu ? "hidden" : ""}>
 			<SidebarButton bind:open />
 		</div>
 	</div>
-	<div slot="right" class="headerRight">
-		<!-- <div class={!showMobileMenu ? "hidden" : ""}>
-			<Navbar />
-		</div> -->
 
-		<div>
-			<darkmode-component />
-		</div>
+	<div slot="right" class="headerRight">
+		<darkmode-component />
 	</div>
 </Header>
 
-<Sidebar {open} />
+<Sidebar bind:open />
 <main>
 	<slot />
 </main>
 
-<!-- 
-<footer>
-	<p>
-		visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit
-	</p>
-</footer> -->
 <style>
+	darkmode-component {
+		--darkmode-switch-size: 30px;
+        --darkmode-switch-text-color: var(--text-color);
+        --darkmode-switch-slider-color: var(--pure-white);
+        --darkmode-switch-background-color: var(--accent-color);
+        --darkmode-switch-accent-color: var(--accent-color);
+	}
+
 	main {
 		flex: 1;
 		display: flex;

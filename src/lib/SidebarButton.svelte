@@ -26,6 +26,7 @@
         z-index: 20;
         cursor: pointer;
         background-color: transparent;
+        color: var(--text-color);
         padding: 0;
         margin: 0 1rem;
         height: 6rem;
@@ -35,10 +36,6 @@
         list-style: none;
         background-size: contain;
         border: none;
-    }
-
-    button.open {
-        color: var(--accent-color);
     }
 
     button:hover {

@@ -1,11 +1,13 @@
 <script>
 	import { page } from "$app/stores";
 	import { routes } from "$lib/routes.js";
+	import SidebarButton from "./SidebarButton.svelte";
 
 	export let open = false;
 </script>
 
 <aside class:open>
+	<SidebarButton bind:open />
 	<nav>
 		<ul>
 			{#each routes as route}
@@ -21,10 +23,10 @@
 	aside {
 		position: absolute;
 		left: -100%;
-		/* width: 100vw; */
-		/* height: 100%; */
-		/* top:0; */
-		background-color: aliceblue;
+		width: 100%;
+		top: 0;
+		bottom: 0;
+		background-color: var(--primary-color);;
 		transition: left 0.3s ease-in-out;
 	}
 
@@ -52,7 +54,7 @@
 
 	li {
 		position: relative;
-		margin: .5rem 0;
+		margin: 0.5rem 0;
 		height: 100%;
 	}
 
@@ -66,7 +68,7 @@
 		height: 100%;
 		align-items: center;
 		padding: 0 1em;
-		color: var(--heading-color);
+		color: var(--text-color);
 		font-weight: 700;
 		font-size: 1.8rem;
 		text-transform: uppercase;
@@ -78,4 +80,4 @@
 	a:hover {
 		color: var(--accent-color);
 	}
-</style> 
+</style>
